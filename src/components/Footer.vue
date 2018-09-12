@@ -2,7 +2,7 @@
   <footer class="bd-footer">
     <b-container>
       <b-row class="justify-content-md-center">
-        <div class="bd-footer-copyright">© 2018 Company, Inc.</div>
+        <div class="bd-footer-copyright">© 2018 POS Dev (change me)</div>
       </b-row>
     </b-container>
   </footer>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 

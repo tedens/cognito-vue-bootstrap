@@ -7,19 +7,9 @@
           <p>Sign up for an account.</p>
           <b-form @submit.prevent="signUp">
             <b-form-group
-              label="Username:"
-              label-for="usernameInput">
-              <b-form-input 
-                id="usernameInput"
-                type="text"
-                v-model="username"
-                required
-                placeholder="Enter username"/>
-            </b-form-group>
-            <b-form-group
               label="Name:"
               label-for="nameInput">
-              <b-form-input 
+              <b-form-input
                 id="nameInput"
                 type="text"
                 v-model="name"
@@ -29,7 +19,7 @@
             <b-form-group
               label="Email:"
               label-for="emailInput">
-              <b-form-input 
+              <b-form-input
                 id="emailInput"
                 type="email"
                 v-model="email"
@@ -39,15 +29,15 @@
             <b-form-group
               label="Password:"
               label-for="passwordInput">
-              <b-form-input 
+              <b-form-input
                 id="passwordInput"
                 type="password"
                 v-model="pass"
                 required
                 placeholder="Enter Password"/>
             </b-form-group>
-            <b-button 
-              type="submit" 
+            <b-button
+              type="submit"
               variant="primary">Submit</b-button>
           </b-form>
         </div>
@@ -64,6 +54,7 @@
 <script>
 import Vue from "vue"
 import router from "@/router"
+import { uuid } from 'vue-uuid'
 
 import { Logger } from "aws-amplify"
 import { mapGetters } from "vuex"
@@ -94,7 +85,7 @@ export default {
     async signUp() {
       logger.debug("sign-up")
       await this.$store.dispatch("auth/signUp", {
-        username: this.username,
+        username: this.generateUsername(),
         password: this.pass,
         attributes: {
           name: this.name,
@@ -105,6 +96,9 @@ export default {
       if (!this.hasAuthenticationStatus) {
         router.push("confirmSignUp")
       }
+    },
+    generateUsername() {
+      return this.$uuid.v4()
     }
   }
 }

@@ -9,7 +9,8 @@ import ConfirmSignUp from '@/pages/auth/ConfirmSignUp.vue'
 import PasswordReset from '@/pages/auth/PasswordReset.vue'
 import ChangePassword from '@/pages/auth/ChangePassword.vue'
 import ConfirmPasswordReset from '@/pages/auth/ConfirmPasswordReset.vue'
-
+import AddStore from '@/pages/stores/Add.vue'
+import AddUser from '@/pages/users/Add.vue'
 import store from '@/store'
 
 Vue.use(Router)
@@ -41,6 +42,12 @@ const routes = [
     },
     {
         path: '/confirmPasswordReset', name: 'confirmPasswordReset', component: ConfirmPasswordReset, meta: { title: 'Confirm Password Reset', auth: false }
+    },
+    {
+        path: '/addStore', name: 'addStore', component: AddStore, meta: { title: 'Add Store', auth: true }
+    },
+    {
+        path: '/addUser', name: 'addUser', component: AddUser, meta: { title: 'Add User', auth: true }
     },
 ]
 

@@ -7,30 +7,30 @@
           <b-form-group
             label="Username:"
             label-for="usernameInput">
-            <b-form-input 
+            <b-form-input
               id="usernameInput"
               type="text"
               v-model="username"
               required
               autofocus
-              placeholder="Enter username"/>
+              placeholder="Enter email"/>
           </b-form-group>
           <b-form-group
             label="Code:"
             label-for="codeInput">
-            <b-form-input 
+            <b-form-input
               id="codeInput"
               type="password"
               v-model="code"
               required
               placeholder="Enter Code"/>
           </b-form-group>
-          <b-button 
-            type="submit" 
-            variant="primary" 
+          <b-button
+            type="submit"
+            variant="primary"
             @click="confirmSignUp">Submit</b-button>
-          <b-button 
-            variant="primary" 
+          <b-button
+            variant="primary"
             @click="confirmResend">Resend Code</b-button>
         </div>
       </b-col>
@@ -67,7 +67,7 @@ export default {
   methods: {
     async confirmSignUp() {
       await store.dispatch("auth/confirmSignUp", {
-        username: this.username,
+        email: this.username,
         code: this.code
       })
       if (!this.hasAuthenticationStatus) {

@@ -7,6 +7,7 @@ const state = {
     user: null,
     isAuthenticated: false,
     authenticationStatus: null,
+    userId: null
 }
 
 const getters = {
@@ -20,7 +21,7 @@ const getters = {
     hasAuthenticationStatus: state => {
         return !!state.authenticationStatus
     }
-}
+  }
 
 const mutations = {
     setAuthenticationError(state, err) {
@@ -35,6 +36,7 @@ const mutations = {
     setUserAuthenticated(state, user) {
         state.user = user
         state.isAuthenticated = true
+        state.user.id = user.signInUserSession.accessToken.payload.sub
     },
     clearAuthentication(state) {
         state.user = null

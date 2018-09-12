@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <b-container 
-      class="main" 
+    <b-container
+      class="main"
       fluid>
       <v-menu/>
       <router-view/>
@@ -14,9 +14,11 @@
 import Vue from 'vue'
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
+import UUID from 'vue-uuid'
 
 Vue.component('v-menu', Menu)
 Vue.component('v-footer', Footer)
+Vue.use(UUID)
 
 export default {
   name: 'App'
