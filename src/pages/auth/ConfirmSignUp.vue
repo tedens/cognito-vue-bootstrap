@@ -13,7 +13,7 @@
               v-model="username"
               required
               autofocus
-              placeholder="Enter email"/>
+              placeholder="Enter username"/>
           </b-form-group>
           <b-form-group
             label="Code:"
